@@ -1,0 +1,15 @@
+sequenceDiagram
+    participant browser
+    participant server
+
+
+
+    Note right of browser: When user submits, spa.js has a form.onsubmit() that redraws the page and shows the new note
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+    Note right of browser: The text of the new note is sent along in the payload for next users who load
+    Note left of server: Server adds note to internal data
+    activate server
+    server-->>browser:  201 Created
+    deactivate server
+
+    
